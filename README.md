@@ -1,2 +1,2 @@
 # To-merge
-idk lol
+Side project, its a game based on undertale ig lol
