@@ -1,4 +1,4 @@
-public class BattleScene 
+public class BattleScene
 {
 
 }
