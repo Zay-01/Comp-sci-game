@@ -2,6 +2,11 @@ public class Game_Runner
 {
     public static void main(String[] args) 
     {
-        System.out.println("i work");
+        int[] PlayerInfo = new int[3];
+        while(true)
+        {
+
+
+        }
     }    
 }
