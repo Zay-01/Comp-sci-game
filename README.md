@@ -1,2 +1,2 @@
 # ToMerge 
-A game probably similiar to undertale, idk yet 
+A side project, similiar to undertale
