@@ -7,10 +7,11 @@ public class Game_Runner extends Game_GUI
     {
         int[] PlayerInfo = new int[3];
         PlayerStats player = new PlayerStats();
-        BufferedWriter modifying_player = new BufferedWriter(new FileWriter("Values/Player_Info.txt"));
-        modifying_player.write("\n");
-            modifying_player.write("0\n");
-            modifying_player.write("0\n");
-            modifying_player.close();
+        PlayerInfo[0] = 1;
+        PlayerInfo[1] = 2;
+        PlayerInfo[2] = 3;
+        player.modifyStats(PlayerInfo);
+        //FYI - This was testing and stuff please remove when not needed
+
     }    
 }
