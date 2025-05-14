@@ -4,12 +4,9 @@ public class PlayerStats
     int[] stats = new int[3];
     String path_Player = "C:\\Users\\mobmi\\ToMerge\\Values\\Player_Info.txt";
     
-    public int[] giveStats()
+    public int[] giveStats(int i, int[] e)
     {
-        for(int i: stats)
-        {
-            
-        }
+        stats = e;
             return stats;
     }
 
