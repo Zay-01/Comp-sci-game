@@ -1,4 +1,4 @@
-package Values;
+package Player;
 import java.io.*;
 
 public class PlayerStats

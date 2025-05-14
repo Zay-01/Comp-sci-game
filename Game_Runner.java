@@ -1,5 +1,5 @@
 import Game.Game_GUI;
-import Values.PlayerStats;
+import Player.PlayerStats;
 import java.io.*;
 public class Game_Runner extends Game_GUI
 {
