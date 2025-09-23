@@ -1,1 +1,5 @@
 This text file describes what happens in Player_Info.txt
+
+
+
+Player: Health, attack, defence
