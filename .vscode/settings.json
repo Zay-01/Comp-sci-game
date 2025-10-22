@@ -2,7 +2,7 @@
     "java.project.sourcePaths": [
         "Holder/Values",
         "Holder/Game",
-        "Holder/Battle",
+        "Holder/Fighting",
         "Holder/Sprites",
         ""
     ]
