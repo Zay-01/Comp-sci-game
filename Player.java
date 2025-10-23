@@ -4,6 +4,7 @@ public class Player
     private double defense;
     private int health;
     private int mana;
+    private final int maxHealth, maxMana;
 
     /**
      * @param Attack
@@ -17,6 +18,8 @@ public class Player
         defense = Defense;
         health = Health;
         mana = Mana;
+        maxHealth = Health;
+        maxMana = Mana;
     }
     
     /**
@@ -43,28 +46,37 @@ public class Player
 
     /**
      * @param damage How much to remove from players health
-     * Defense is a % and reduces how much attack hurts the players
+     * Defense is a % and reduces how much attack damages the players
      */
     public void damageRecieved(int damage)
     {
-        health -= damage-((int)damage*defense);
+        health -= damage-((int)(damage*defense));
     }
+
 
     /**
-     * @param heal How much player healed up
-     * @param reduction How much health gets voided due to mana attack
+     * @param heal 
+     * How much player healed up
      */
-    public void amountHealed(int heal, double reduction)
+    public void amountHealed(int heal)
     {
-        health += (int) (heal-(heal*reduction));
+        health += heal;
+        if(health > maxHealth)
+        {
+            health = maxHealth
+        }
     }
 
+    public void manaUsed(int used)
+    {
+        mana -= used;
+        if(mana <= 0)
+        {
+            health -= (int)(used*defense)
+        }
+    }
     public boolean isAlive()
     {
-        if(health <= 0)
-        {
-            return false;
-        }
-        return true;
+        return health > 0;
     }
 }
