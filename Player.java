@@ -1,48 +1,15 @@
 public class Player
 {
-    private int attack;
-    private double defense;
-    private int health;
-    private int mana;
-    private final int maxHealth, maxMana;
+    int[] attack = {10,20,30,40,50};
+    int[] health = {100,200,300,400,500};
+    int[] mana = {100,120,140,160,180};
+    double[] defense = {.1,.2,.3,.4,.5};
 
-    /**
-     * @param Attack
-     * @param Defense
-     * @param Health
-     * @param Mana
-     */
-    public Player(int Attack,double Defense,int Health,int Mana)
-    {
-        attack = Attack;
-        defense = Defense;
-        health = Health;
-        mana = Mana;
-        maxHealth = Health;
-        maxMana = Mana;
-    }
-    
-    /**
-     * @param actionIndex Takes you current action options
-     * @return Which action you want to do and a integer of what there currently is
-     */
-    public String actions(int actionIndex)
-    {
+    private int currentLevel = 0;
+    private int currentXp = 0;
+    private final int[] maxHealth = {100,200,300,400,500};
+    private final int[] maxMana = {100,120,140,160,180};
 
-            switch(actionIndex)
-            {
-            case 1:
-            return "Attack " + attack;
-            case 2:
-            return "Defend " + defense;
-            case 3:
-            return "Mana " + mana;
-            case 4: 
-            return "Heal " + 30;
-            }
-        
-        return "[ERROR Did you figure this out?? - Player -> Actions]";
-    }
 
     /**
      * @param damage How much to remove from players health
@@ -50,33 +17,62 @@ public class Player
      */
     public void damageRecieved(int damage)
     {
-        health -= damage-((int)(damage*defense));
+        health[currentLevel] -= damage-((int)(damage*defense[currentLevel]));
     }
-
 
     /**
-     * @param heal 
-     * How much player healed up
+     * @param xp XP gained from monster
+     * level up if required xp is reached and currentLevel is not the limit
+     * currentLevel - 1 should be used instead of the number
      */
-    public void amountHealed(int heal)
+    public void gainedXp(int xp)
     {
-        health += heal;
-        if(health > maxHealth)
+        currentXp += xp;
+        if(currentLevel == 1000 && currentLevel != 4)
         {
-            health = maxHealth
+            currentXp -= 1000;
+            currentLevel += 1;
         }
     }
 
-    public void manaUsed(int used)
+    /**
+     * @param heal - How much player healed up
+     */
+    public String amountHealed(int heal)
     {
-        mana -= used;
-        if(mana <= 0)
+        health[currentLevel] += heal;
+
+        if(health[currentLevel] > maxHealth[currentLevel])
         {
-            health -= (int)(used*defense)
+            health = maxHealth;
         }
+        return "Healed: " + heal + " Current HP: " + health[currentLevel];
     }
+
+    public String manaUsed(int Mana)
+    {
+        mana[currentLevel] -= Mana;
+
+        if(mana[currentLevel] <= 0)
+        {
+            health[currentLevel] -= (int)(Mana*defense[currentLevel]);
+
+            return " [] " + Mana + " [MANA] " + mana[currentLevel] + " [HP]";
+
+        }
+        
+        return "Mana Restored: " + Mana + " Current Mana: " + mana[currentLevel];
+
+
+    }
+
     public boolean isAlive()
     {
-        return health > 0;
+        return health[currentLevel] > 0;
+    }
+
+    public String toString()
+    {
+        return "\n[HEALTH]: " + health[currentLevel] + "\n[DEFENSE]: " + defense[currentLevel] + "\n[ATTACK]: " + attack[currentLevel] + "\n[MANA]: " + mana[currentLevel] + "\n\n[MAX-HEALTH]: " + maxHealth[currentLevel] + "\n[MAX-MANA]: " + maxMana[currentLevel] + "\n\n[ALIVE]: " + isAlive() + "\n[LEVEL]: " + currentLevel + "\n[XP]: " + currentXp;
     }
 }
