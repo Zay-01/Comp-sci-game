@@ -3,13 +3,20 @@ public class Player
     int[] attack = {10,20,30,40,50};
     int[] health = {100,200,300,400,500};
     int[] mana = {100,120,140,160,180};
+    
     double[] defense = {.1,.2,.3,.4,.5};
 
     private int currentLevel = 0;
     private int currentXp = 0;
+
     private final int[] maxHealth = {100,200,300,400,500};
     private final int[] maxMana = {100,120,140,160,180};
 
+    public void savePointReset()
+    {
+        health = maxHealth;
+        mana = maxMana;
+    }
 
     /**
      * @param damage How much to remove from players health
@@ -32,6 +39,7 @@ public class Player
         {
             currentXp -= 1000;
             currentLevel += 1;
+            savePointReset();
         }
     }
 
