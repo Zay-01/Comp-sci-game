@@ -1,9 +1,7 @@
 public class Player
 {
-    private int attack;
+    private int attack,health,mana;
     private double defense;
-    private int health;
-    private int mana;
     private final int maxHealth, maxMana;
 
     /**
@@ -63,7 +61,7 @@ public class Player
         health += heal;
         if(health > maxHealth)
         {
-            health = maxHealth
+            health = maxHealth;
         }
     }
 
@@ -72,11 +70,16 @@ public class Player
         mana -= used;
         if(mana <= 0)
         {
-            health -= (int)(used*defense)
+            health -= (int)(used*defense);
         }
     }
     public boolean isAlive()
     {
         return health > 0;
+    }
+
+    public String toString()
+    {
+        return "\n[HEALTH]: " + health + "\n[DEFENSE]: " + defense + "\n[ATTACK]: " + attack + "\n[MANA]: " + mana + "\n[MAX-HEALTH]: " + maxHealth + "\n[MAX-MANA]: " + maxMana + "\n[ALIVE]: " + isAlive();
     }
 }

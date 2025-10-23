@@ -10,8 +10,4 @@ public class Summon
         random = (int) (Math.random()*maximumRange + minimumRange);
     }
 
-    public Enemy chooseEnemy()
-    {
-        currentEntity = 
-    }
 }
