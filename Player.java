@@ -6,12 +6,17 @@ public class Player
     
     double[] defense = {.1,.2,.3,.4,.5};
 
-    private int currentLevel = 0;
-    private int currentXp = 0;
+    private int level = 0;
+    private int xp = 0;
 
     private final int[] maxHealth = {100,200,300,400,500};
     private final int[] maxMana = {100,120,140,160,180};
 
+    public Player(int lastLevel,int lastXp)
+    {
+        level = lastLevel;
+        xp = lastXp
+    }
     public void savePointReset()
     {
         health = maxHealth;
@@ -24,48 +29,59 @@ public class Player
      */
     public void damageRecieved(int damage)
     {
-        health[currentLevel] -= damage-((int)(damage*defense[currentLevel]));
+        health[level] -= damage-((int)(damage*defense[level]));
     }
 
     /**
      * @param xp XP gained from monster
-     * level up if required xp is reached and currentLevel is not the limit
-     * currentLevel - 1 should be used instead of the number
+     * level up if required xp is reached and level is not the limit
+     * levrl - 1 should be used instead of the number
      */
-    public void gainedXp(int xp)
+    public void gainedXp(int xpGain)
     {
-        currentXp += xp;
-        if(currentLevel == 1000 && currentLevel != 4)
+        xp += xpGain;
+        if(xp == 1000 && level != 4)
         {
-            currentXp -= 1000;
-            currentLevel += 1;
+            xp -= 1000;
+            level += 1;
             savePointReset();
         }
     }
 
     /**
-     * @param heal - How much player healed up
+     * @param heal
+     * Heals 75% of the healed amount
+     * Restores 25% mana from healed amount
+     * Avoids health overflow
      */
     public String amountHealed(int heal)
     {
-        health[currentLevel] += heal;
-
-        if(health[currentLevel] > maxHealth[currentLevel])
+        health[level] += (int)(heal*.75);
+        mana[level] += (int)(heal*.25);
+        if(health[level] > maxHealth[level])
         {
             health = maxHealth;
         }
-        return "Healed: " + heal + " Current HP: " + health[currentLevel];
+        return "Healed: " + heal + " Current HP: " + health[level];
     }
 
+    /**
+     * @param Mana
+     * Reduces mana stored
+     * Any other mana that goes above the amount
+     * stored will damage the player defense reduces
+     * damage inflicted
+     */
     public String manaUsed(int Mana)
     {
-        mana[currentLevel] -= Mana;
+        mana[level] -= Mana;
 
-        if(mana[currentLevel] <= 0)
+        if(mana[level] < 0)
         {
-            health[currentLevel] -= (int)(Mana*defense[currentLevel]);
+            health[level] -= mana - (int)(mana*defense[level]);
+            mana = 0;
 
-            return " [] " + Mana + " [MANA] " + mana[currentLevel] + " [HP]";
+            return " [RESTORED]: " + Mana + " [MANA]: " + mana[level] + " [HP]";
 
         }
         
