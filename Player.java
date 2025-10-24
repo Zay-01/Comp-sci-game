@@ -15,7 +15,7 @@ public class Player
     public Player(int lastLevel,int lastXp)
     {
         level = lastLevel;
-        xp = lastXp
+        xp = lastXp;
     }
     public void savePointReset()
     {
