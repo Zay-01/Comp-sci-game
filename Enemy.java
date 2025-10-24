@@ -25,6 +25,17 @@ public class Enemy
         return name;
     }
 
+    /**
+     * @param damage
+     * Damages the enemy, defense reduces a % of the damage 
+     */
+    public void damageRecieved(int damage)
+    {
+
+        health -= damage-((int)(damage*defense));
+
+    }
+
     public boolean isAlive()
     {
         return health > 0;
@@ -32,7 +43,9 @@ public class Enemy
 
     public int Attack()
     {
-        return attack;
+        double increase = Math.random() * 10;
+
+        return attack + (int)(attack*increase);
     }
 
 

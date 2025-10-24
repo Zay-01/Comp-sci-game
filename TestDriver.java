@@ -4,11 +4,13 @@ public class TestDriver
     public static void main(String[] args) 
     {
 
-        Player test = new Player();
-        test.damageRecieved(90);
+        progressSaving test1 = new progressSaving();
+        Player test = new Player(test1.obtainSavePoint());
+
         System.out.println(test);
-        System.out.println(test.damageRecieved(100))
-        System.out.println(test.manaUsed(120));
+        test.amountHealed(900);
+        System.out.println(test);
+        test.gainedXp(300);
         System.out.println(test);
     }
 }
