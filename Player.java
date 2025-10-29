@@ -25,31 +25,28 @@ public class Player
     }
 
     /**
-     * @param damage How much to remove from players health
+     * @param damage
      * Defense is a % and reduces how much attack damages the players
      */
     public void damageRecieved(int damage)
     {
         health[level] -= damage-((int)(damage*defense[level]));
-
     }
 
     /**
      * @param xp XP gained from monster
      * level up if required xp is reached and level is not the limit
-     * levrl - 1 should be used instead of the number
+     * [level - 1] should be used 
      */
     public void gainedXp(int xpGain)
     {
         xp += xpGain;
-        if(xp >= 1000 && level != 4)
+        while(xp >= 1000 && level != 4)
         {
             xp -= 1000;
             level += 1;
             savePointReset();
-
         }
-
     }
 
     /**
@@ -66,7 +63,6 @@ public class Player
         if(health[level] > maxHealth[level])
         {
             health = maxHealth;
-
         }
     }
 
@@ -83,12 +79,9 @@ public class Player
 
         if(mana[level] < 0)
         {
-
             health[level] += mana[level] - (int)(mana[level]*defense[level]);
             mana[level] = 0;
- 
         }
-
     }
 
     public boolean isAlive()

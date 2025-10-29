@@ -1,11 +1,18 @@
+
 public class Enemy 
 {
 
     private int attack;
-    private double defense;
     private int health;
+    private int manaShield;
+
     private String name;
-    private int manaShield
+
+    private double defense;
+
+    private final int maxHealth;
+    private final int maxShield;
+
     /**
      * @param Attack
      * @param Defense
@@ -19,6 +26,9 @@ public class Enemy
         health = Health;
         name = Name;
         manaShield = Shield;
+
+        maxShield = Shield;
+        maxHealth = Health;
     }
 
     public String getName()
@@ -47,6 +57,7 @@ public class Enemy
       health += (int) (manaShield*defense) + heal;
         manaShield -= (int)(manaShield*defense);
     }
+
     public int Attack()
     {
         double increase = Math.random() * 10;
@@ -54,5 +65,15 @@ public class Enemy
         return attack + (int)(attack*increase);
     }
 
+    public void shatterShield()
+    {
+        manaShield = 0;
 
+    }
+
+    public String toString()
+    {
+        return "\n[E-HEALTH]: " + health + "\n[E-DEFENSE]: " + defense + "\n[E-ATTACK]: " + attack + "\n[E-SHIELD]: " + manaShield + "\n\n[E-MAX-HEALTH]: " + maxHealth + "\n[E-MAX-SHIELD]: " + maxShield + "\n\n[E-ALIVE]: " + isAlive();
+
+    }
 }
