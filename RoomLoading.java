@@ -11,12 +11,22 @@ public class RoomLoading
      */
     public RoomLoading(int[] info)
     {
-
         roomNumber = info[2];
-
     }
 
+    public String nextRoom()
+    {
+        roomNumber += 1;
+        return rooms[roomNumber];
+    }
 
+    public String previousRoom()
+    {
+        roomNumber -= 1;
+        return rooms[roomNumber];
+    }
+
+    
     @Override
     public String toString()
     {

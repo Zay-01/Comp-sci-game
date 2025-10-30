@@ -5,61 +5,44 @@ public class ProgressSaving
 {
 
     private Scanner sc;
-    private RandomAccessFile tbd;
-    int[] info = new int[3];
+    private RandomAccessFile fw;
+    private int[] info = new int[3];
 
-    public ProgressSaving()
-    {
-        try
-        {
-                sc = new Scanner(new File("SaveFile.txt"));
-                tbd = new RandomAccessFile("SaveFile.txt", "rw");
-        }
-
-        catch(IOException e)
-        {
-            System.out.println(e);
-        }
-    }
 
     /**
      * @return info array which will be used to initialize the player stats from the player file!
-     * [[0] - Level] 
-     * [[1] - Xp]
-     * [[3] - Room number - <b>DO NOT USE IN PLAYER CLASS<b>]
+     * <br>[[0] - Level] 
+     * <br>[[1] - Xp]
+     * <br>[[3] - Room number - <b>DO NOT USE IN PLAYER CLASS<b>]
      */
-    public int[] obtainSavePoint()
+    public int[] obtainSavePoint() throws IOException
     {
-        try
-        {
             sc = new Scanner(new File("SaveFile.txt"));
 
             info[0] = sc.nextInt();
             info[1] = sc.nextInt();
             info[2] = sc.nextInt();
-        }
-
-        catch(IOException e)
-        {
-            System.out.println(e);
-        }
-
 
         return info;
 
     }
 
     /**
-     *  Modifies text file and stores all important stats that need to be saved througout different runs
+     * Sets the main 3 stats into the text file so if you ever quit you can restore your progress
+     * Anything past the checkpoint will be lost until you reach another checkpoint or go back to a checkpoint
+     * to save your progress 
+     * [[1] - Level]
      *  <br><b>WARNING: THIS ONLY RUNS WHEN YOU SAVE TO A CHECKPOINT!<b>
      */
     public void setSavePoint(int[] input) throws IOException 
     {
-        
-        tbd.setLength(0);
+
+        fw = new RandomAccessFile("SaveFile.txt", "rw");
+        fw.setLength(0);
+
         for (int i = 0; i < 3; i++) 
         {
-            tbd.writeBytes(info[i] + "\n"); 
+            fw.writeBytes(info[i] + "\n"); 
         }
 
     }

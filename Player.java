@@ -1,7 +1,7 @@
 public class Player
 {
     private int[] attack = {10,20,30,40,50};
-    private int[] health = {100,200,300,400,500};
+    private int[] health = {30,60,90,120,150};
     private int[] mana = {100,120,140,160,180};
     
     private double[] defense = {.1,.2,.3,.4,.5};
