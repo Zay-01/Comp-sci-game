@@ -21,7 +21,8 @@ public class TestDriver
             playerTest.damageRecieved(33);
 
             int[] info = savingTest.obtainSavePoint();
-            gui.run();
+            gui.setWindow();
+            gui.setLayout();
 
 
           
