@@ -22,7 +22,10 @@ public class TestDriver
 
             int[] info = savingTest.obtainSavePoint();
             gui.setWindow();
-            gui.setLayout();
+            gui.setLayout(2);
+
+
+            gui.setLayout(1);
 
 
           

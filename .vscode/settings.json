@@ -1,9 +1,6 @@
 {
-    "java.project.sourcePaths": [
-        "Holder/Values",
-        "Holder/Game",
-        "Holder/Fighting",
-        "Holder/Sprites",
-        ""
+    "java.project.sourcePaths": 
+    [
+
     ]
 }

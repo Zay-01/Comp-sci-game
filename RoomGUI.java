@@ -2,10 +2,6 @@ import javax.swing.*;
 public class RoomGUI 
 {
     private JFrame gameFrame = new JFrame();
-    private ImageIcon room0 = new ImageIcon("RoomSprites/Room1.png");
-    private ImageIcon room1 = new ImageIcon("RoomSprites/Room1.png");    
-    private ImageIcon room2 = new ImageIcon("RoomSprites/Room2.png");    
-    int test = 2;
     
     public void setWindow()
     {
@@ -16,41 +12,47 @@ public class RoomGUI
 
     }
 
-    public void setLayout()
+    public void setLayout(int room) 
     {
-        JLabel label = new JLabel();
-        switch(test)
-        {
-            case 0:
-            label.setIcon(room0);
-            label.setBounds(0, 0, gameFrame.getWidth(),gameFrame.getHeight());
-            label.setVisible(true);
-            gameFrame.add(label);
-            System.out.println("Room 0");
+        gameFrame.getContentPane().removeAll(); 
 
+        JLabel label = new JLabel();
+        ImageIcon icon = null;
+
+        switch (room) 
+        {
+        case 0:
+            icon = new ImageIcon("RoomSprites/Room0.png");
+            System.out.println("Room 0");
             break;
-            
-            case 1:
-            label.setIcon(room1);
-            label.setBounds(0, 0, gameFrame.getWidth(),gameFrame.getHeight());
-            label.setVisible(true);
-            gameFrame.add(label);
+        case 1:
+            icon = new ImageIcon("RoomSprites/Room1.png");
             System.out.println("Room 1");
             break;
-
-            case 2:
-            label.setIcon(room2);
-            label.setBounds(0, 0, gameFrame.getWidth(),gameFrame.getHeight());
-            label.setVisible(true);
-            gameFrame.add(label);
-            System.out.println("Room 3");
+        case 2:
+            icon = new ImageIcon("RoomSprites/Room2.png");
+            System.out.println("Room 2");
             break;
+        default:
+            System.out.println("Invalid room!");
+            return;
         }
+
+        label.setIcon(icon);
+        label.setBounds(0, 0, gameFrame.getWidth(), gameFrame.getHeight());
+        gameFrame.add(label);
+        gameFrame.revalidate();
+        gameFrame.repaint();
+}
+
+
+    public void setBarriers()
+    {
+        
     }
 
-    public void player()
+    public void playerMove(int x,int y)
     {
-        JLabel playerLabel = new JLabel();
         
     }
 }
