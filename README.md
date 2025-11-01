@@ -1,5 +1,6 @@
 # Void GAME
 
+Outdated /!\
 -- Game -- 
 Room
 Enemy encounters
