@@ -18,6 +18,7 @@ public class Enemy
      * @param Defense
      * @param Health
      * @param Name
+     * @param Shield
      */
     public Enemy(int Attack, Double Defense, int Health, String Name, int Shield)
     {
@@ -71,6 +72,7 @@ public class Enemy
 
     }
 
+    @Override
     public String toString()
     {
         return "\n[E-HEALTH]: " + health + "\n[E-DEFENSE]: " + defense + "\n[E-ATTACK]: " + attack + "\n[E-SHIELD]: " + manaShield + "\n\n[E-MAX-HEALTH]: " + maxHealth + "\n[E-MAX-SHIELD]: " + maxShield + "\n\n[E-ALIVE]: " + isAlive();

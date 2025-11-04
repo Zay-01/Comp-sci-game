@@ -21,6 +21,17 @@ public class RoomGUI
 
         switch (room) 
         {
+        case -1:
+            icon = new ImageIcon("RoomSprites/Logo.png");
+            System.out.println("Room 0");
+            label.setIcon(icon);
+            label.setBounds(0, 0, gameFrame.getWidth()+1000, gameFrame.getHeight()+1000);
+            label.setHorizontalAlignment(JLabel.CENTER);
+            label.setVerticalAlignment(JLabel.CENTER);
+            gameFrame.add(label);
+            gameFrame.revalidate();
+            gameFrame.repaint();
+            return ;
         case 0:
             icon = new ImageIcon("RoomSprites/Room0.png");
             System.out.println("Room 0");
@@ -38,11 +49,13 @@ public class RoomGUI
             return;
         }
 
+
         label.setIcon(icon);
         label.setBounds(0, 0, gameFrame.getWidth(), gameFrame.getHeight());
         gameFrame.add(label);
         gameFrame.revalidate();
         gameFrame.repaint();
+    
 }
 
 
