@@ -13,7 +13,7 @@ public class RoomLoading
     {
         roomNumber = info[2];
     }
-
+    
     public String nextRoom()
     {
         roomNumber += 1;

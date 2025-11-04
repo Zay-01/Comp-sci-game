@@ -18,6 +18,9 @@ public class Player
         xp = info[1];
     }
 
+    /**
+     * Resets stats to restore old values to their maximum state
+     */
     public void savePointReset()
     {
         health = maxHealth;
