@@ -10,29 +10,57 @@ public class TestDriver
         Scanner sc = new Scanner(System.in);
         ProgressSaving savingTest = new ProgressSaving();
         Player playerTest = new Player(savingTest.obtainSavePoint());
-        Enemy enemyTest = new Enemy(90, .4, 1, "nuclear bomb", 900);
+        Enemy enemyTest = new Enemy(8, .4, 900, "nuclear bomb", 900);
         RoomGUI gui = new RoomGUI();
-        
-
-        System.out.println(playerTest);
-        playerTest.amountHealed((int)(Math.random()*20));
-        System.out.println(playerTest);
-        playerTest.gainedXp(1);
-        System.out.println(playerTest);
-        System.out.println(enemyTest);
-        playerTest.damageRecieved(33);
-
-        int[] info = savingTest.obtainSavePoint();
-        gui.setWindow();
-        gui.setLayout(-1);
 
 
         while(true)
         {
-            int input = sc.nextInt();
-            gui.setLayout(input);
+            
         }
-
-          
+   
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**        while(playerTest.isAlive() && enemyTest.isAlive())
+        {
+            String input = sc.next();
+
+            switch(input)
+            {
+                case "attack" -> System.out.println(enemyTest.damageRecieved(playerTest.attackAction()));
+                case "heal" -> playerTest.amountHealed(20);
+            }
+
+            System.out.println(enemyTest.getName() + " is preparing their attack!");
+            System.out.println(playerTest.damageRecieved(enemyTest.Attack()) + " damage has been delt!");
+
+            System.out.println("Would you like to know player stat? type y/n");
+            input = sc.next();
+            
+            switch (input) 
+            {
+                case "y" -> System.out.println(playerTest);
+            }
+
+
+            
+        } */

@@ -23,7 +23,7 @@ public class RoomGUI
         {
         case -1:
             icon = new ImageIcon("RoomSprites/Logo.png");
-            System.out.println("Room 0");
+            System.out.println("Room -1");
             label.setIcon(icon);
             label.setBounds(0, 0, gameFrame.getWidth(), gameFrame.getHeight());
             label.setHorizontalAlignment(JLabel.CENTER);
@@ -31,7 +31,7 @@ public class RoomGUI
             gameFrame.add(label);
             gameFrame.revalidate();
             gameFrame.repaint();
-            return ;
+            break;
         case 0:
             icon = new ImageIcon("RoomSprites/Room0.png");
             System.out.println("Room 0");
@@ -51,7 +51,7 @@ public class RoomGUI
 
 
         label.setIcon(icon);
-        label.setBounds(0, 0, gameFrame.getWidth(), gameFrame.getHeight());
+        label.setBounds(0, 1, gameFrame.getWidth(), gameFrame.getHeight());
         gameFrame.add(label);
         gameFrame.revalidate();
         gameFrame.repaint();

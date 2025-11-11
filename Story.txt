@@ -3,7 +3,7 @@ Void game
 Defeat enemies, save your town.
 
 Goal: 8 enemies
-Fast-Paced battles 
+Fast-Paced battes 
 Enemy attacks
 
 

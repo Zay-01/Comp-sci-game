@@ -5,7 +5,6 @@ Outdated /!\
 Room
 Enemy encounters
 Hit box
-
 -- Player --
 Attack - 1
 Defense - 10

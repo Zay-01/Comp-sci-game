@@ -19,7 +19,7 @@ public class Player
     }
 
     /**
-     * Resets stats to restore old values to their maximum state
+     * Resets stats to restore old values to their maximum statee
      */
     public void savePointReset()
     {
@@ -31,9 +31,11 @@ public class Player
      * @param damage
      * Defense is a % and reduces how much attack damages the players
      */
-    public void damageRecieved(int damage)
+    public int damageRecieved(int damage)
     {
         health[level] -= damage-((int)(damage*defense[level]));
+
+        return damage;
     }
 
     /**
@@ -52,6 +54,13 @@ public class Player
         }
     }
 
+    /**
+     * @return attack towards enemy
+     */
+    public int attackAction()
+    {
+        return attack[level];
+    }
     /**
      * @param heal
      * Heals 100% of the healed amount

@@ -19,6 +19,7 @@ public class Enemy
      * @param Health
      * @param Name
      * @param Shield
+     * e
      */
     public Enemy(int Attack, Double Defense, int Health, String Name, int Shield)
     {
@@ -41,11 +42,10 @@ public class Enemy
      * @param damage
      * Damages the enemy, defense reduces a % of the damage 
      */
-    public void damageRecieved(int damage)
+    public int damageRecieved(int damage)
     {
-
         health -= damage-((int)(damage*defense));
-
+        return damage;
     }
 
     public boolean isAlive()
@@ -53,23 +53,26 @@ public class Enemy
         return health > 0;
     }
 
+    /**
+     * @param heal
+     * Manashield also aids in healing, however manaShield will also reduce! 
+     */
     public void heal(int heal)
     {
-      health += (int) (manaShield*defense) + heal;
+        if(manaShield <= 0)
+        {
+            health += heal;
+            return; 
+        }
+        health += (int) (manaShield*defense) + heal;
         manaShield -= (int)(manaShield*defense);
     }
 
     public int Attack()
     {
-        double increase = Math.random() * 10;
+        double increase = ((int)(Math.random() * 10))/100;
 
         return attack + (int)(attack*increase);
-    }
-
-    public void shatterShield()
-    {
-        manaShield = 0;
-
     }
 
     @Override

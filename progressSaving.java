@@ -10,7 +10,7 @@ public class ProgressSaving
 
 
     /**
-     * @return info array which will be used to initialize the player stats from the player file!
+     * @return info array which wille be used to initialize the player stats from the player file!
      * <br>[[0] - Level] 
      * <br>[[1] - Xp]
      * <br>[[3] - Room number - <b>DO NOT USE IN PLAYER CLASS<b>]
