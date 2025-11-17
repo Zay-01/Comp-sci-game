@@ -1,39 +1,37 @@
-import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.*;
+public class Movement implements KeyListener {
+    private RoomGUI gui;
 
-public class Movement extends JFrame implements KeyListener
-{
-
-    @Override
-    public void keyTyped(KeyEvent e) {
+    public Movement(RoomGUI gui) {
+        this.gui = gui;
+        gui.getFrame().addKeyListener(this);
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-System.out.println("balls " + e);
+        int code = e.getKeyCode();
+        switch (code) {
+            case KeyEvent.VK_UP:
+             gui.playerMove(0, -10);
+             System.out.println("UP");
+             break;
+            case KeyEvent.VK_DOWN:
+             gui.playerMove(0, 10);
+             System.out.println("down");
+             break;
+            case KeyEvent.VK_LEFT:
+            gui.playerMove(-10, 0);
+            System.out.println("left");
+            break;
+            case KeyEvent.VK_RIGHT:
+            gui.playerMove(10, 0);
+            System.out.println("right");
+            break;
+        }
     }
 
-    @Override
-    public void keyReleased(KeyEvent e) {
-        System.out.println(e);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @Override public void keyTyped(KeyEvent e) {}
+    @Override public void keyReleased(KeyEvent e) {}
 }

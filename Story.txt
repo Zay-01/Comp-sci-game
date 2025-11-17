@@ -1,15 +1,8 @@
-Void game
+The world is hit with chaos, 6 underworld portals have opened
 
-Defeat enemies, save your town.
+Its been a difficult 4 months, but finally you reached the end. The forming Under Portal the final one that will 
+open up the gap between the 2 worlds and will summon a overpowered being. However, You the light have the power to 
+destroy it. You couldnt have survived this far if you havent...
 
-Goal: 8 enemies
-Fast-Paced battes 
-Enemy attacks
-
-
-Reach your way to the void puddle and enable the void extractors
-
-Finally defeat the final boss: Void Heart
-Using mercy to weaken it as it tries to play with your fears
-Attack when weakened (3 turns)
-
+Goal: rooms working
+Goal: barriers when rooms working
