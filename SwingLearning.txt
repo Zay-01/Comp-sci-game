@@ -6,3 +6,13 @@ Jpanel acts like a Jframe within the frame
 Jbutton is well a button.....
 
 Action listener interface!!!
+
+
+Alright yap time:
+
+So press arrow key to move 
+
+IF Room has Right entrance: move Right
+
+
+So 

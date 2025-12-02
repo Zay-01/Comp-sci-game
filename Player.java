@@ -81,9 +81,8 @@ public class Player
     /**
      * @param Mana
      * Reduces mana stored
-     * Any other mana that goes above the amount
-     * stored will damage the player defense reduces
-     * damage inflicted
+     * [IF] Player goes past empty -> Take damage
+     * [IF] mana < 0, set {mana = 0}. Negative mana cant exist 
      */
     public void manaUsed(int Mana)
     {
@@ -96,6 +95,9 @@ public class Player
         }
     }
 
+    /**
+     * @return [TRUE] - if alive, [FALSE] if dead, [INBETWEEN] when limit x -> klus = DNE 
+     */
     public boolean isAlive()
     {
         return health[level] > 0;

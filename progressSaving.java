@@ -10,29 +10,29 @@ public class ProgressSaving
 
 
     /**
-     * @return info array which wille be used to initialize the player stats from the player file!
-     * <br>[[0] - Level] 
-     * <br>[[1] - Xp]
-     * <br>[[3] - Room number - <b>DO NOT USE IN PLAYER CLASS<b>]
+     * @return Array to initialize player, room etc.
+     * [0] - Level
+     * [1] - Xp
+     * [3] - Room number - <b>DO NOT USE IN PLAYER CLASS<b>
      */
     public int[] obtainSavePoint() throws IOException
     {
-            sc = new Scanner(new File("SaveFile.txt"));
+        sc = new Scanner(new File("SaveFile.txt"));
 
-            info[0] = sc.nextInt();
-            info[1] = sc.nextInt();
-            info[2] = sc.nextInt();
+        info[0] = sc.nextInt();
+        info[1] = sc.nextInt();
+        info[2] = sc.nextInt();
 
         return info;
 
     }
 
     /**
-     * Sets the main 3 stats into the text file so if you ever quit you can restore your progress
-     * Anything past the checkpoint will be lost until you reach another checkpoint or go back to a checkpoint
-     * to save your progress 
-     * [[1] - Level]
-     *  <br><b>WARNING: THIS ONLY RUNS WHEN YOU SAVE TO A CHECKPOINT!<b>
+     * Sets your stats when you save 
+     * [1] - Level
+     * [2] - XP
+     * [3] - Room number
+     * /!\ YOU WILL LOSE PROGRESS IF YOU SAVE ANYWHERE ELSE /!\
      */
     public void setSavePoint(int[] input) throws IOException 
     {

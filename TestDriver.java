@@ -12,11 +12,8 @@ public class TestDriver
         Player playerTest = new Player(savingTest.obtainSavePoint());
         Enemy enemyTest = new Enemy(8, .4, 100, "nuclear bomb", 900);
         RoomGUI gui = new RoomGUI();
-        new Movement(gui);
 
-        gui.setWindow();
-        gui.setLayout(-1);
-        
+        gui.windowLayout();
 
    
     }
