@@ -3,6 +3,7 @@ import javax.swing.*;
 public class RoomGUI 
 {
     JFrame frame = new JFrame();
+    
 
 
     /**
@@ -22,5 +23,9 @@ public class RoomGUI
     public void roomLayout()
     {
         ImageIcon test = new ImageIcon("RoomSprites/Logo.png");
+        JLabel label = new JLabel();
+        label.add(test);
+
+
     }
 }

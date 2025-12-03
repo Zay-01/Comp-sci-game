@@ -10,7 +10,7 @@ public class TestDriver
         Scanner sc = new Scanner(System.in);
         ProgressSaving savingTest = new ProgressSaving();
         Player playerTest = new Player(savingTest.obtainSavePoint());
-        Enemy enemyTest = new Enemy(8, .4, 100, "nuclear bomb", 900);
+        Enemy enemyTest = new Enemy(8, .4, 100, "nuclear bomb", 1);
         RoomGUI gui = new RoomGUI();
 
         gui.windowLayout();
